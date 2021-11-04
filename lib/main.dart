@@ -1,5 +1,6 @@
-import 'package:app_web/ui/pages/counter_page.dart';
-import 'package:app_web/ui/pages/counter_provider_page.dart';
+import 'package:app_web/router/route_generator.dart';
+// import 'package:app_web/ui/pages/counter_page.dart';
+// import 'package:app_web/ui/pages/counter_provider_page.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -11,10 +12,11 @@ class MyApp extends StatelessWidget {
       title: 'Ruta App',
       debugShowCheckedModeBanner: false,
       initialRoute: '/stateful',
-      routes: {
-        '/stateful': (_) => CounterPage(),
-        '/provider': (_) => CounterProviderPage(),
-      },
+      // routes: {
+      //   '/stateful': (_) => CounterPage(),
+      //   '/provider': (_) => CounterProviderPage(),
+      // },
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }
