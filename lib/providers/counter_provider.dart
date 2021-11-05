@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 
 class CounterProvider extends ChangeNotifier {
+
   int _counter = 15;
 
-  //saber el valor actual
-  get counter {
-    return this._counter;
-  }
+  get counter => this._counter;
 
   void increment() {
     this._counter++;
-    //redibujar los cambios
     notifyListeners();
   }
 
@@ -18,4 +15,6 @@ class CounterProvider extends ChangeNotifier {
     this._counter--;
     notifyListeners();
   }
+
 }
+

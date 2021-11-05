@@ -1,22 +1,29 @@
-import 'package:app_web/router/route_generator.dart';
-// import 'package:app_web/ui/pages/counter_page.dart';
-// import 'package:app_web/ui/pages/counter_provider_page.dart';
+import 'package:app_web/locator.dart';
 import 'package:flutter/material.dart';
+import 'package:app_web/router/route_generator.dart';
+import 'package:app_web/ui/layout/main_layout_page.dart';
 
-void main() => runApp(MyApp());
+import 'package:app_web/services/navigation_service.dart';
+
+void main() {
+  setupLocator();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Ruta App',
       debugShowCheckedModeBanner: false,
+      title: 'RutasApp',
       initialRoute: '/stateful',
-      // routes: {
-      //   '/stateful': (_) => CounterPage(),
-      //   '/provider': (_) => CounterProviderPage(),
-      // },
       onGenerateRoute: RouteGenerator.generateRoute,
+      navigatorKey: locator<NavigationService>().navigatorKey,
+      builder: (_, child) {
+        return MainLayoutPage(
+          child: child ?? Container(),
+        );
+      },
     );
   }
 }

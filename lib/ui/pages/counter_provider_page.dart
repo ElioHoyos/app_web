@@ -1,8 +1,9 @@
-import 'package:app_web/ui/shared/custom_app_menu.dart';
 import 'package:flutter/material.dart';
-import 'package:app_web/providers/counter_provider.dart';
-import 'package:app_web/ui/shared/custom_flat_button.dart';
 import 'package:provider/provider.dart';
+
+import 'package:app_web/providers/counter_provider.dart';
+import 'package:app_web/ui/shared/custom_app_menu.dart';
+import 'package:app_web/ui/shared/custom_flat_button.dart';
 
 class CounterProviderPage extends StatelessWidget {
   @override
@@ -16,19 +17,20 @@ class _CounterProviderPageBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final counterProvider = Provider.of<CounterProvider>(context);
+
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CustomAppMenu(),
           Spacer(),
-          Text("Contador Provider", style: TextStyle(fontSize: 20)),
+          Text('Contador Provider', style: TextStyle(fontSize: 20)),
           FittedBox(
             fit: BoxFit.contain,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Text(
-                "Contador: ${counterProvider}",
+                'Contador: ${counterProvider.counter}',
                 style: TextStyle(fontSize: 80, fontWeight: FontWeight.bold),
               ),
             ),
@@ -37,11 +39,11 @@ class _CounterProviderPageBody extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomFlatButton(
-                  text: "Incrementar",
+                  text: 'Incrementar',
                   onPressed: () => counterProvider.increment()),
               CustomFlatButton(
-                  text: "Decrementar",
-                  onPressed: () => counterProvider.decrement())
+                  text: 'Decrementar',
+                  onPressed: () => counterProvider.decrement()),
             ],
           ),
           Spacer(),
